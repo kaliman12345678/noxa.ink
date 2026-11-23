@@ -559,6 +559,98 @@ body {
 }
 
 /* ==========================================================================
+   SELECTOR DE TEMAS VISUALES
+   ========================================================================== */
+.themes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.theme-card {
+  background: #111114;
+  border: 1px solid var(--admin-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-card:hover {
+  border-color: var(--admin-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.theme-card.active {
+  border-color: var(--admin-accent);
+  background: rgba(214, 197, 176, 0.05);
+}
+
+.theme-badge-active {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: var(--admin-accent);
+  color: #0D0D0F;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  display: none;
+}
+
+.theme-card.active .theme-badge-active {
+  display: inline-block;
+}
+
+.theme-swatches {
+  display: flex;
+  gap: 8px;
+  margin: 1rem 0 1.25rem 0;
+}
+
+.swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.theme-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--admin-text-main);
+  margin-bottom: 0.3rem;
+}
+
+.theme-tag {
+  font-size: 0.75rem;
+  color: var(--admin-accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.theme-desc {
+  font-size: 0.82rem;
+  color: var(--admin-text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+/* ==========================================================================
    RESPONSIVIDAD
    ========================================================================== */
 @media (max-width: 900px) {

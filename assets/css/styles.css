@@ -14,6 +14,127 @@
   --color-bone: #F5F5F3;
   --color-navy: #1B263B;
   --color-steel: #6E7275;
+  --header-bg-scrolled: rgba(13, 13, 15, 0.94);
+  --card-boxer-gradient: linear-gradient(135deg, #18181B 0%, #201f24 50%, #18181B 100%);
+}
+
+/* ==========================================================================
+   PALETAS Y TEMAS VISUALES EDITORIALES (APLICABLES DESDE ADMIN)
+   ========================================================================== */
+
+/* 1. Onyx & Sand (Oficial NOXA // Quiet Luxury Clásico) */
+[data-theme="onyx-sand"], html[data-theme="onyx-sand"] {
+  --bg-black: #0D0D0F;
+  --bg-surface: #18181B;
+  --bg-surface-hover: #232328;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --color-sand: #D6C5B0;
+  --color-sand-hover: #C4B29C;
+  --color-concrete: #8C8780;
+  --color-bone: #F5F5F3;
+  --header-bg-scrolled: rgba(13, 13, 15, 0.94);
+  --card-boxer-gradient: linear-gradient(135deg, #18181B 0%, #201f24 50%, #18181B 100%);
+}
+
+/* 2. Obsidian & Gold (Alta Sastrería & Oro Viejo Satinado) */
+[data-theme="obsidian-gold"], html[data-theme="obsidian-gold"] {
+  --bg-black: #08080A;
+  --bg-surface: #131317;
+  --bg-surface-hover: #1C1C22;
+  --border-subtle: rgba(201, 169, 119, 0.14);
+  --border-strong: rgba(201, 169, 119, 0.28);
+  --color-sand: #C9A977;
+  --color-sand-hover: #B89765;
+  --color-concrete: #9E9484;
+  --color-bone: #F7F5F0;
+  --header-bg-scrolled: rgba(8, 8, 10, 0.95);
+  --card-boxer-gradient: linear-gradient(135deg, #131317 0%, #1B1B22 50%, #131317 100%);
+}
+
+/* 3. Titanium & Slate (Brutalismo Arquitectónico & Grafito) */
+[data-theme="titanium-slate"], html[data-theme="titanium-slate"] {
+  --bg-black: #111215;
+  --bg-surface: #1A1B22;
+  --bg-surface-hover: #242630;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --color-sand: #E2E4E9;
+  --color-sand-hover: #CCD0D8;
+  --color-concrete: #8B8F9A;
+  --color-bone: #FFFFFF;
+  --header-bg-scrolled: rgba(17, 18, 21, 0.95);
+  --card-boxer-gradient: linear-gradient(135deg, #1A1B22 0%, #22242E 50%, #1A1B22 100%);
+}
+
+/* 4. Midnight Deep Navy (Azul Marino Nocturno & Lino Crudo) */
+[data-theme="midnight-navy"], html[data-theme="midnight-navy"] {
+  --bg-black: #080C14;
+  --bg-surface: #0F1726;
+  --bg-surface-hover: #162238;
+  --border-subtle: rgba(212, 195, 163, 0.12);
+  --border-strong: rgba(212, 195, 163, 0.24);
+  --color-sand: #D4C3A3;
+  --color-sand-hover: #C2B08F;
+  --color-concrete: #7F8B99;
+  --color-bone: #F3F5F7;
+  --header-bg-scrolled: rgba(8, 12, 20, 0.95);
+  --card-boxer-gradient: linear-gradient(135deg, #0F1726 0%, #162035 50%, #0F1726 100%);
+}
+
+/* 5. Olive Drab & Stone (Verde Táctico & Piedra Salvia) */
+[data-theme="olive-stone"], html[data-theme="olive-stone"] {
+  --bg-black: #0C0F0C;
+  --bg-surface: #151B15;
+  --bg-surface-hover: #1E261E;
+  --border-subtle: rgba(197, 201, 173, 0.14);
+  --border-strong: rgba(197, 201, 173, 0.26);
+  --color-sand: #C5C9AD;
+  --color-sand-hover: #B3B799;
+  --color-concrete: #80887A;
+  --color-bone: #F4F6F2;
+  --header-bg-scrolled: rgba(12, 15, 12, 0.95);
+  --card-boxer-gradient: linear-gradient(135deg, #151B15 0%, #1C241C 50%, #151B15 100%);
+}
+
+/* 6. Editorial Bone & Charcoal (Modo Claro de Lujo // Revista Impresa) */
+[data-theme="editorial-bone"], html[data-theme="editorial-bone"] {
+  --bg-black: #F6F5F2;
+  --bg-surface: #FFFFFF;
+  --bg-surface-hover: #EBEAE5;
+  --border-subtle: rgba(0, 0, 0, 0.09);
+  --border-strong: rgba(0, 0, 0, 0.18);
+  --color-sand: #18181B;
+  --color-sand-hover: #27272A;
+  --color-concrete: #63615C;
+  --color-bone: #141416;
+  --header-bg-scrolled: rgba(246, 245, 242, 0.96);
+  --card-boxer-gradient: linear-gradient(135deg, #FFFFFF 0%, #F0EFEA 50%, #FFFFFF 100%);
+}
+
+[data-theme="editorial-bone"] .site-header .header-logo,
+[data-theme="editorial-bone"] .site-footer img {
+  filter: invert(1) brightness(0.2);
+}
+
+[data-theme="editorial-bone"] .hero-title span {
+  color: #18181B !important;
+}
+
+[data-theme="editorial-bone"] .btn-sand {
+  color: #F6F5F2 !important;
+}
+
+[data-theme="editorial-bone"] .pill-badge {
+  background: rgba(0, 0, 0, 0.06);
+  color: #141416;
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="editorial-bone"] .quiz-option.selected {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: #18181B;
+  color: #18181B;
 }
 
 *, *::before, *::after {
@@ -147,7 +268,7 @@ img, video {
   background: transparent;
 }
 .site-header.scrolled {
-  background-color: rgba(13, 13, 15, 0.92);
+  background-color: var(--header-bg-scrolled, rgba(13, 13, 15, 0.92));
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
@@ -245,7 +366,7 @@ img, video {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(13, 13, 15, 0.4) 0%, rgba(13, 13, 15, 0.8) 60%, #0D0D0F 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 60%, var(--bg-black) 100%);
   z-index: 2;
 }
 .hero-content {
@@ -392,7 +513,7 @@ img, video {
   line-height: 1.6;
 }
 .contrast-banner {
-  background: linear-gradient(135deg, #18181B 0%, #201f24 50%, #18181B 100%);
+  background: var(--card-boxer-gradient);
   border: 1px solid rgba(214, 197, 176, 0.3);
   border-radius: 1.5rem;
   padding: 3rem 2rem;
@@ -494,7 +615,7 @@ img, video {
 .lookbook-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 30%, rgba(13, 13, 15, 0.95) 100%);
+  background: linear-gradient(180deg, transparent 30%, var(--bg-black) 100%);
   z-index: 2;
 }
 .lookbook-content {

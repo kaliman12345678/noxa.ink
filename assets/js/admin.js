@@ -307,9 +307,56 @@ function initDashboard() {
   // 5. Cargar Leads
   renderLeadsTable();
 
+  // 6. Resaltar Tema Activo
+  const currentTheme = data.theme || localStorage.getItem('noxa_active_theme') || 'onyx-sand';
+  updateThemeUI(currentTheme);
+
   // Escuchadores de Guardado
   setupSaveHandlers();
 }
+
+// ==========================================================================
+// GESTIÓN DE TEMAS VISUALES
+// ==========================================================================
+const THEME_NAMES = {
+  'onyx-sand': 'Onyx & Arena Cálida',
+  'obsidian-gold': 'Obsidiana & Oro Viejo',
+  'titanium-slate': 'Titanio & Monolito',
+  'midnight-navy': 'Azul Marino & Lino',
+  'olive-stone': 'Oliva Drab & Piedra',
+  'editorial-bone': 'Blanco Hueso & Carbón'
+};
+
+function updateThemeUI(activeTheme) {
+  const cards = document.querySelectorAll('.theme-card');
+  cards.forEach(card => {
+    const id = card.getAttribute('data-theme-id');
+    const btn = card.querySelector('button');
+    if (id === activeTheme) {
+      card.classList.add('active');
+      if (btn) {
+        btn.className = 'btn-admin btn-admin-accent';
+        btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Tema Activo';
+      }
+    } else {
+      card.classList.remove('active');
+      if (btn) {
+        btn.className = 'btn-admin btn-admin-outline';
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Activar Tema';
+      }
+    }
+  });
+}
+
+window.applyThemeSelection = function(themeId) {
+  const data = getSiteData();
+  data.theme = themeId;
+  saveSiteData(data);
+  localStorage.setItem('noxa_active_theme', themeId);
+  updateThemeUI(themeId);
+  const themeName = THEME_NAMES[themeId] || themeId;
+  showToast(`✓ Tema "${themeName}" activado en noxa.ink`);
+};
 
 // ==========================================================================
 // GUARDAR CAMBIOS POR SECCIÓN

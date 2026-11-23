@@ -93,6 +93,12 @@
           </button>
         </li>
         <li class="nav-item">
+          <button class="nav-btn" data-tab="tab-themes">
+            <i class="fa-solid fa-palette"></i>
+            <span>Temas & Estilos</span>
+          </button>
+        </li>
+        <li class="nav-item">
           <button class="nav-btn" data-tab="tab-quiz">
             <i class="fa-solid fa-ruler-combined"></i>
             <span>Diagnóstico & WhatsApp</span>
@@ -292,6 +298,136 @@
                 <i class="fa-solid fa-floppy-disk"></i> Guardar Prendas
               </button>
             </form>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PESTAÑA: TEMAS & ESTILOS VISUALES
+             ================================================================ -->
+        <section class="tab-pane" id="tab-themes">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div>
+                <h2 class="admin-card-title">Estilos Visuales & Paletas de Marca</h2>
+                <p class="admin-card-subtitle">Selecciona la dirección estética de NOXA. Los cambios se aplican de inmediato en todo el sitio.</p>
+              </div>
+            </div>
+
+            <div class="themes-grid">
+              <!-- Tema 1: Onyx & Sand -->
+              <div class="theme-card" data-theme-id="onyx-sand">
+                <span class="theme-badge-active">Activo</span>
+                <div>
+                  <span class="theme-tag">ADN Original NOXA</span>
+                  <h3 class="theme-title">Onyx & Arena Cálida</h3>
+                  <div class="theme-swatches">
+                    <span class="swatch" style="background: #0D0D0F;" title="Fondo Principal (#0D0D0F)"></span>
+                    <span class="swatch" style="background: #18181B;" title="Superficie (#18181B)"></span>
+                    <span class="swatch" style="background: #D6C5B0;" title="Acento Arena (#D6C5B0)"></span>
+                    <span class="swatch" style="background: #F5F5F3;" title="Texto Blanco Hueso (#F5F5F3)"></span>
+                  </div>
+                  <p class="theme-desc">La esencia Quiet Luxury original de NOXA. Inspirado en empaques rígidos negro mate y acabados arquitectónicos sobrios.</p>
+                </div>
+                <button type="button" class="btn-admin btn-admin-accent" onclick="applyThemeSelection('onyx-sand')">
+                  <i class="fa-solid fa-check"></i> Activar Tema
+                </button>
+              </div>
+
+              <!-- Tema 2: Obsidian & Gold -->
+              <div class="theme-card" data-theme-id="obsidian-gold">
+                <span class="theme-badge-active">Activo</span>
+                <div>
+                  <span class="theme-tag">Alta Sastrería & Noche</span>
+                  <h3 class="theme-title">Obsidiana & Oro Viejo</h3>
+                  <div class="theme-swatches">
+                    <span class="swatch" style="background: #08080A;" title="Obsidiana (#08080A)"></span>
+                    <span class="swatch" style="background: #131317;" title="Carbón Fino (#131317)"></span>
+                    <span class="swatch" style="background: #C9A977;" title="Oro Viejo Satinado (#C9A977)"></span>
+                    <span class="swatch" style="background: #F7F5F0;" title="Marfil (#F7F5F0)"></span>
+                  </div>
+                  <p class="theme-desc">Sofisticación masculina nocturna. Negro obsidiana profundo con sutiles toques de champaña y oro envejecido.</p>
+                </div>
+                <button type="button" class="btn-admin btn-admin-outline" onclick="applyThemeSelection('obsidian-gold')">
+                  <i class="fa-solid fa-check"></i> Activar Tema
+                </button>
+              </div>
+
+              <!-- Tema 3: Titanium & Slate -->
+              <div class="theme-card" data-theme-id="titanium-slate">
+                <span class="theme-badge-active">Activo</span>
+                <div>
+                  <span class="theme-tag">Concreto & Minimalismo</span>
+                  <h3 class="theme-title">Titanio & Monolito</h3>
+                  <div class="theme-swatches">
+                    <span class="swatch" style="background: #111215;" title="Grafito Monolítico (#111215)"></span>
+                    <span class="swatch" style="background: #1A1B22;" title="Superficie Titanio (#1A1B22)"></span>
+                    <span class="swatch" style="background: #E2E4E9;" title="Titanio Platino (#E2E4E9)"></span>
+                    <span class="swatch" style="background: #FFFFFF;" title="Blanco Puro (#FFFFFF)"></span>
+                  </div>
+                  <p class="theme-desc">Inspirado en la arquitectura brutalista y el hormigón urbano. Estética limpia, fría, cortante y ultra contemporánea.</p>
+                </div>
+                <button type="button" class="btn-admin btn-admin-outline" onclick="applyThemeSelection('titanium-slate')">
+                  <i class="fa-solid fa-check"></i> Activar Tema
+                </button>
+              </div>
+
+              <!-- Tema 4: Midnight Deep Navy -->
+              <div class="theme-card" data-theme-id="midnight-navy">
+                <span class="theme-badge-active">Activo</span>
+                <div>
+                  <span class="theme-tag">Algodón Marino & Costa</span>
+                  <h3 class="theme-title">Azul Marino & Lino</h3>
+                  <div class="theme-swatches">
+                    <span class="swatch" style="background: #080C14;" title="Azul Noche (#080C14)"></span>
+                    <span class="swatch" style="background: #0F1726;" title="Azul Marino Profundo (#0F1726)"></span>
+                    <span class="swatch" style="background: #D4C3A3;" title="Lino Crudo (#D4C3A3)"></span>
+                    <span class="swatch" style="background: #F3F5F7;" title="Hueso Náutico (#F3F5F7)"></span>
+                  </div>
+                  <p class="theme-desc">Elegancia náutica sobria. Inspirado en el colorway azul marino de NOXA y fibras naturales de lino mediterráneo.</p>
+                </div>
+                <button type="button" class="btn-admin btn-admin-outline" onclick="applyThemeSelection('midnight-navy')">
+                  <i class="fa-solid fa-check"></i> Activar Tema
+                </button>
+              </div>
+
+              <!-- Tema 5: Olive Drab & Stone -->
+              <div class="theme-card" data-theme-id="olive-stone">
+                <span class="theme-badge-active">Activo</span>
+                <div>
+                  <span class="theme-tag">Textil Táctico & Fuerza</span>
+                  <h3 class="theme-title">Oliva Drab & Piedra</h3>
+                  <div class="theme-swatches">
+                    <span class="swatch" style="background: #0C0F0C;" title="Bosque Apagado (#0C0F0C)"></span>
+                    <span class="swatch" style="background: #151B15;" title="Oliva Oscuro (#151B15)"></span>
+                    <span class="swatch" style="background: #C5C9AD;" title="Piedra Salvia (#C5C9AD)"></span>
+                    <span class="swatch" style="background: #F4F6F2;" title="Blanco Orgánico (#F4F6F2)"></span>
+                  </div>
+                  <p class="theme-desc">Estética utilitaria de lujo y durabilidad textil. Verde bosque discreto con acentos minerales de piedra clara.</p>
+                </div>
+                <button type="button" class="btn-admin btn-admin-outline" onclick="applyThemeSelection('olive-stone')">
+                  <i class="fa-solid fa-check"></i> Activar Tema
+                </button>
+              </div>
+
+              <!-- Tema 6: Editorial Bone & Charcoal -->
+              <div class="theme-card" data-theme-id="editorial-bone">
+                <span class="theme-badge-active">Activo</span>
+                <div>
+                  <span class="theme-tag">Revista Impresa // Modo Claro</span>
+                  <h3 class="theme-title">Blanco Hueso & Carbón</h3>
+                  <div class="theme-swatches">
+                    <span class="swatch" style="background: #F6F5F2;" title="Blanco Hueso (#F6F5F2)"></span>
+                    <span class="swatch" style="background: #FFFFFF;" title="Superficie Pura (#FFFFFF)"></span>
+                    <span class="swatch" style="background: #18181B;" title="Carbón Acento (#18181B)"></span>
+                    <span class="swatch" style="background: #141416;" title="Texto Negro (#141416)"></span>
+                  </div>
+                  <p class="theme-desc">Modo claro de alta costura. Estilo editorial de publicación impresa de moda europea sobre papel mate de alto gramaje.</p>
+                </div>
+                <button type="button" class="btn-admin btn-admin-outline" onclick="applyThemeSelection('editorial-bone')">
+                  <i class="fa-solid fa-check"></i> Activar Tema
+                </button>
+              </div>
+            </div>
           </div>
         </section>
 

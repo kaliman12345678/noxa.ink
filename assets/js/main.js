@@ -12,12 +12,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const raw = localStorage.getItem("noxa_site_data");
     if (raw) {
       customSiteData = JSON.parse(raw);
-      applyAdminSiteData(customSiteData);
     }
   } catch (err) {}
 
+  const activeTheme = customSiteData?.theme || localStorage.getItem("noxa_active_theme") || "onyx-sand";
+  document.documentElement.setAttribute("data-theme", activeTheme);
+
+  if (customSiteData) {
+    applyAdminSiteData(customSiteData);
+  }
+
   function applyAdminSiteData(data) {
     if (!data) return;
+
+    // Aplicar Tema Visual
+    if (data.theme) {
+      document.documentElement.setAttribute("data-theme", data.theme);
+    }
 
     // Actualizar Hero
     if (data.hero?.tag) {
