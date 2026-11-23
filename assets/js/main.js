@@ -37,7 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (data.hero?.title) {
       const heroTitle = document.querySelector(".hero-title");
-      if (heroTitle) heroTitle.innerHTML = data.hero.title;
+      if (heroTitle) {
+        const clean = String(data.hero.title)
+          .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
+          .replace(/on\w+="[^"]*"/gi, "")
+          .replace(/javascript:/gi, "");
+        heroTitle.innerHTML = clean;
+      }
     }
     if (data.hero?.subtitle) {
       const heroSub = document.querySelector(".hero-subtitle");
