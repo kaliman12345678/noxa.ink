@@ -96,6 +96,12 @@
           </button>
         </li>
         <li class="nav-item">
+          <button class="nav-btn" data-tab="tab-media">
+            <i class="fa-solid fa-photo-film"></i>
+            <span>Fotos & Multimedia</span>
+          </button>
+        </li>
+        <li class="nav-item">
           <button class="nav-btn" data-tab="tab-themes">
             <i class="fa-solid fa-palette"></i>
             <span>Temas & Estilos</span>
@@ -301,6 +307,256 @@
                 <i class="fa-solid fa-floppy-disk"></i> Guardar Prendas
               </button>
             </form>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PESTAÑA: GESTOR DE FOTOS & MULTIMEDIA
+             ================================================================ -->
+        <section class="tab-pane" id="tab-media">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div>
+                <h2 class="admin-card-title">Gestión de Fotos & Videos de la Web</h2>
+                <p class="admin-card-subtitle">Sube tus propias fotos desde el computador o escribe una URL para cambiar cualquier imagen de la página en tiempo real.</p>
+              </div>
+              <button type="button" class="btn-admin btn-admin-accent" id="btnSaveMediaAll">
+                <i class="fa-solid fa-floppy-disk"></i> Guardar Todas las Fotos
+              </button>
+            </div>
+
+            <div class="media-grid">
+              <!-- Hero Principal -->
+              <div class="media-edit-card" data-media-target="hero">
+                <div class="media-thumb-wrap">
+                  <span class="media-thumb-badge">Hero Principal</span>
+                  <img src="assets/editorial/personaje-1-hero.jpg" class="media-thumb-img" id="preview-hero">
+                </div>
+                <div>
+                  <label class="form-label-admin">Foto o Video de Fondo del Hero</label>
+                  <input type="text" class="form-input-admin media-url-input" id="input-media-hero" value="assets/editorial/personaje-1-hero.jpg">
+                </div>
+                <div class="media-actions-bar">
+                  <label class="media-file-btn">
+                    <i class="fa-solid fa-upload"></i> Subir Archivo
+                    <input type="file" accept="image/*,video/mp4" style="display: none;" onchange="handleMediaUpload(this, 'hero')">
+                  </label>
+                  <button type="button" class="media-reset-btn" onclick="resetMediaDefault('hero', 'assets/editorial/personaje-1-hero.jpg')">
+                    Restablecer
+                  </button>
+                </div>
+              </div>
+
+              <!-- Lookbook 1 -->
+              <div class="media-edit-card" data-media-target="lookbook1">
+                <div class="media-thumb-wrap">
+                  <span class="media-thumb-badge">Lookbook: Personaje 1</span>
+                  <img src="assets/editorial/personaje-1-hero.jpg" class="media-thumb-img" id="preview-lookbook1">
+                </div>
+                <div>
+                  <label class="form-label-admin">El Urbano Seguro (Talla 3XL)</label>
+                  <input type="text" class="form-input-admin media-url-input" id="input-media-lookbook1" value="assets/editorial/personaje-1-hero.jpg">
+                </div>
+                <div class="media-actions-bar">
+                  <label class="media-file-btn">
+                    <i class="fa-solid fa-upload"></i> Subir Archivo
+                    <input type="file" accept="image/*" style="display: none;" onchange="handleMediaUpload(this, 'lookbook1')">
+                  </label>
+                  <button type="button" class="media-reset-btn" onclick="resetMediaDefault('lookbook1', 'assets/editorial/personaje-1-hero.jpg')">
+                    Restablecer
+                  </button>
+                </div>
+              </div>
+
+              <!-- Lookbook 2 -->
+              <div class="media-edit-card" data-media-target="lookbook2">
+                <div class="media-thumb-wrap">
+                  <span class="media-thumb-badge">Lookbook: Personaje 2</span>
+                  <img src="assets/editorial/personaje-2-lookbook.jpg" class="media-thumb-img" id="preview-lookbook2">
+                </div>
+                <div>
+                  <label class="form-label-admin">Estilo de Vida (Talla 2XL)</label>
+                  <input type="text" class="form-input-admin media-url-input" id="input-media-lookbook2" value="assets/editorial/personaje-2-lookbook.jpg">
+                </div>
+                <div class="media-actions-bar">
+                  <label class="media-file-btn">
+                    <i class="fa-solid fa-upload"></i> Subir Archivo
+                    <input type="file" accept="image/*" style="display: none;" onchange="handleMediaUpload(this, 'lookbook2')">
+                  </label>
+                  <button type="button" class="media-reset-btn" onclick="resetMediaDefault('lookbook2', 'assets/editorial/personaje-2-lookbook.jpg')">
+                    Restablecer
+                  </button>
+                </div>
+              </div>
+
+              <!-- Lookbook 3 -->
+              <div class="media-edit-card" data-media-target="lookbook3">
+                <div class="media-thumb-wrap">
+                  <span class="media-thumb-badge">Lookbook: Personaje 3</span>
+                  <img src="assets/editorial/personaje-3-lookbook.jpg" class="media-thumb-img" id="preview-lookbook3">
+                </div>
+                <div>
+                  <label class="form-label-admin">Versatilidad (Talla 4XL)</label>
+                  <input type="text" class="form-input-admin media-url-input" id="input-media-lookbook3" value="assets/editorial/personaje-3-lookbook.jpg">
+                </div>
+                <div class="media-actions-bar">
+                  <label class="media-file-btn">
+                    <i class="fa-solid fa-upload"></i> Subir Archivo
+                    <input type="file" accept="image/*" style="display: none;" onchange="handleMediaUpload(this, 'lookbook3')">
+                  </label>
+                  <button type="button" class="media-reset-btn" onclick="resetMediaDefault('lookbook3', 'assets/editorial/personaje-3-lookbook.jpg')">
+                    Restablecer
+                  </button>
+                </div>
+              </div>
+
+              <!-- Prenda: Camisetas -->
+              <div class="media-edit-card" data-media-target="garmentTshirt">
+                <div class="media-thumb-wrap">
+                  <span class="media-thumb-badge">Catálogo: Camisetas</span>
+                  <img src="assets/brand/colores.png" class="media-thumb-img" id="preview-garmentTshirt">
+                </div>
+                <div>
+                  <label class="form-label-admin">Camisetas de Alto Gramaje</label>
+                  <input type="text" class="form-input-admin media-url-input" id="input-media-garmentTshirt" value="assets/brand/colores.png">
+                </div>
+                <div class="media-actions-bar">
+                  <label class="media-file-btn">
+                    <i class="fa-solid fa-upload"></i> Subir Archivo
+                    <input type="file" accept="image/*" style="display: none;" onchange="handleMediaUpload(this, 'garmentTshirt')">
+                  </label>
+                  <button type="button" class="media-reset-btn" onclick="resetMediaDefault('garmentTshirt', 'assets/brand/colores.png')">
+                    Restablecer
+                  </button>
+                </div>
+              </div>
+
+              <!-- Prenda: Bóxers -->
+              <div class="media-edit-card" data-media-target="garmentBoxer">
+                <div class="media-thumb-wrap">
+                  <span class="media-thumb-badge">Catálogo: Bóxers</span>
+                  <img src="assets/brand/boxer-mockup-1.png" class="media-thumb-img" id="preview-garmentBoxer">
+                </div>
+                <div>
+                  <label class="form-label-admin">Bóxers Ergonómicos</label>
+                  <input type="text" class="form-input-admin media-url-input" id="input-media-garmentBoxer" value="assets/brand/boxer-mockup-1.png">
+                </div>
+                <div class="media-actions-bar">
+                  <label class="media-file-btn">
+                    <i class="fa-solid fa-upload"></i> Subir Archivo
+                    <input type="file" accept="image/*" style="display: none;" onchange="handleMediaUpload(this, 'garmentBoxer')">
+                  </label>
+                  <button type="button" class="media-reset-btn" onclick="resetMediaDefault('garmentBoxer', 'assets/brand/boxer-mockup-1.png')">
+                    Restablecer
+                  </button>
+                </div>
+              </div>
+
+              <!-- Prenda: Unboxing -->
+              <div class="media-edit-card" data-media-target="garmentUnboxing">
+                <div class="media-thumb-wrap">
+                  <span class="media-thumb-badge">Catálogo: Unboxing</span>
+                  <img src="assets/editorial/unboxing-boxers-rigido.jpg" class="media-thumb-img" id="preview-garmentUnboxing">
+                </div>
+                <div>
+                  <label class="form-label-admin">Caja Rígida de Presentación</label>
+                  <input type="text" class="form-input-admin media-url-input" id="input-media-garmentUnboxing" value="assets/editorial/unboxing-boxers-rigido.jpg">
+                </div>
+                <div class="media-actions-bar">
+                  <label class="media-file-btn">
+                    <i class="fa-solid fa-upload"></i> Subir Archivo
+                    <input type="file" accept="image/*" style="display: none;" onchange="handleMediaUpload(this, 'garmentUnboxing')">
+                  </label>
+                  <button type="button" class="media-reset-btn" onclick="resetMediaDefault('garmentUnboxing', 'assets/editorial/unboxing-boxers-rigido.jpg')">
+                    Restablecer
+                  </button>
+                </div>
+              </div>
+
+              <!-- Prenda: Busos -->
+              <div class="media-edit-card" data-media-target="garmentHoodie">
+                <div class="media-thumb-wrap">
+                  <span class="media-thumb-badge">Catálogo: Busos / Hoodies</span>
+                  <img src="assets/brand/buso-noxa.png" class="media-thumb-img" id="preview-garmentHoodie">
+                </div>
+                <div>
+                  <label class="form-label-admin">Busos y Hoodies NOXA</label>
+                  <input type="text" class="form-input-admin media-url-input" id="input-media-garmentHoodie" value="assets/brand/buso-noxa.png">
+                </div>
+                <div class="media-actions-bar">
+                  <label class="media-file-btn">
+                    <i class="fa-solid fa-upload"></i> Subir Archivo
+                    <input type="file" accept="image/*" style="display: none;" onchange="handleMediaUpload(this, 'garmentHoodie')">
+                  </label>
+                  <button type="button" class="media-reset-btn" onclick="resetMediaDefault('garmentHoodie', 'assets/brand/buso-noxa.png')">
+                    Restablecer
+                  </button>
+                </div>
+              </div>
+
+              <!-- Macro: Algodón -->
+              <div class="media-edit-card" data-media-target="macroCotton">
+                <div class="media-thumb-wrap">
+                  <span class="media-thumb-badge">Macro: Algodón Pesado</span>
+                  <img src="assets/editorial/macro-textil-algodon.jpg" class="media-thumb-img" id="preview-macroCotton">
+                </div>
+                <div>
+                  <label class="form-label-admin">Detalle Tejido 240g/m²</label>
+                  <input type="text" class="form-input-admin media-url-input" id="input-media-macroCotton" value="assets/editorial/macro-textil-algodon.jpg">
+                </div>
+                <div class="media-actions-bar">
+                  <label class="media-file-btn">
+                    <i class="fa-solid fa-upload"></i> Subir Archivo
+                    <input type="file" accept="image/*" style="display: none;" onchange="handleMediaUpload(this, 'macroCotton')">
+                  </label>
+                  <button type="button" class="media-reset-btn" onclick="resetMediaDefault('macroCotton', 'assets/editorial/macro-textil-algodon.jpg')">
+                    Restablecer
+                  </button>
+                </div>
+              </div>
+
+              <!-- Macro: Cuello -->
+              <div class="media-edit-card" data-media-target="macroCollar">
+                <div class="media-thumb-wrap">
+                  <span class="media-thumb-badge">Macro: Cuello Acanalado</span>
+                  <img src="assets/editorial/macro-cuello-reforzado.jpg" class="media-thumb-img" id="preview-macroCollar">
+                </div>
+                <div>
+                  <label class="form-label-admin">Detalle Cuello Rib 1x1</label>
+                  <input type="text" class="form-input-admin media-url-input" id="input-media-macroCollar" value="assets/editorial/macro-cuello-reforzado.jpg">
+                </div>
+                <div class="media-actions-bar">
+                  <label class="media-file-btn">
+                    <i class="fa-solid fa-upload"></i> Subir Archivo
+                    <input type="file" accept="image/*" style="display: none;" onchange="handleMediaUpload(this, 'macroCollar')">
+                  </label>
+                  <button type="button" class="media-reset-btn" onclick="resetMediaDefault('macroCollar', 'assets/editorial/macro-cuello-reforzado.jpg')">
+                    Restablecer
+                  </button>
+                </div>
+              </div>
+
+              <!-- Logo Oficial -->
+              <div class="media-edit-card" data-media-target="logo">
+                <div class="media-thumb-wrap">
+                  <span class="media-thumb-badge">Logo de Marca</span>
+                  <img src="assets/brand/logo.png" class="media-thumb-img" style="object-fit: contain; padding: 1rem;" id="preview-logo">
+                </div>
+                <div>
+                  <label class="form-label-admin">Logo Oficial Header / Footer</label>
+                  <input type="text" class="form-input-admin media-url-input" id="input-media-logo" value="assets/brand/logo.png">
+                </div>
+                <div class="media-actions-bar">
+                  <label class="media-file-btn">
+                    <i class="fa-solid fa-upload"></i> Subir Archivo
+                    <input type="file" accept="image/*" style="display: none;" onchange="handleMediaUpload(this, 'logo')">
+                  </label>
+                  <button type="button" class="media-reset-btn" onclick="resetMediaDefault('logo', 'assets/brand/logo.png')">
+                    Restablecer
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

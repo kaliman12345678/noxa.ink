@@ -64,8 +64,8 @@
 
   <!-- HERO SECTION INMERSIVO -->
   <section class="hero-section">
-    <div class="hero-bg-layer">
-      <img src="assets/editorial/personaje-1-hero.jpg" alt="NOXA Moda Masculina L a 4XL" class="hero-bg-img">
+    <div class="hero-bg-layer" id="hero-bg-container">
+      <img src="assets/editorial/personaje-1-hero.jpg" alt="NOXA Moda Masculina L a 4XL" class="hero-bg-img" id="img-hero">
       <div class="hero-overlay"></div>
     </div>
 
@@ -225,7 +225,7 @@
 
       <div class="lookbook-grid">
         <div class="lookbook-featured">
-          <img src="assets/editorial/personaje-1-hero.jpg" alt="El Urbano Seguro NOXA">
+          <img src="assets/editorial/personaje-1-hero.jpg" alt="El Urbano Seguro NOXA" id="img-lookbook-1">
           <div class="lookbook-overlay"></div>
           <div class="lookbook-content">
             <span class="pill-badge">Talla 3XL • Negro Esencial</span>
@@ -243,7 +243,7 @@
 
         <div class="lookbook-stacked">
           <div class="lookbook-small-card">
-            <img src="assets/editorial/personaje-2-lookbook.jpg" alt="Estilo de Vida Cotidiano">
+            <img src="assets/editorial/personaje-2-lookbook.jpg" alt="Estilo de Vida Cotidiano" id="img-lookbook-2">
             <div class="lookbook-overlay"></div>
             <div class="lookbook-content">
               <span class="pill-badge" style="background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.2);">
@@ -259,7 +259,7 @@
           </div>
 
           <div class="lookbook-small-card">
-            <img src="assets/editorial/personaje-3-lookbook.jpg" alt="Versatilidad y Actitud">
+            <img src="assets/editorial/personaje-3-lookbook.jpg" alt="Versatilidad y Actitud" id="img-lookbook-3">
             <div class="lookbook-overlay"></div>
             <div class="lookbook-content">
               <span class="pill-badge" style="background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.2);">
@@ -279,7 +279,7 @@
       <!-- Detalle Macros -->
       <div class="macros-grid">
         <div class="macro-card">
-          <img src="assets/editorial/macro-textil-algodon.jpg" alt="Macro algodón pesado" class="macro-thumb">
+          <img src="assets/editorial/macro-textil-algodon.jpg" alt="Macro algodón pesado" class="macro-thumb" id="img-macro-cotton">
           <div>
             <span style="font-family: monospace; font-size: 0.65rem; color: var(--color-sand); text-transform: uppercase;">
               Detalle Textil
@@ -290,7 +290,7 @@
         </div>
 
         <div class="macro-card">
-          <img src="assets/editorial/macro-cuello-reforzado.jpg" alt="Cuello indeformable" class="macro-thumb">
+          <img src="assets/editorial/macro-cuello-reforzado.jpg" alt="Cuello indeformable" class="macro-thumb" id="img-macro-collar">
           <div>
             <span style="font-family: monospace; font-size: 0.65rem; color: var(--color-sand); text-transform: uppercase;">
               Durabilidad
@@ -318,7 +318,7 @@
         <!-- Prenda 1: Camisetas -->
         <div class="garment-card" data-garment="tshirt">
           <div class="garment-img-wrap">
-            <img src="assets/brand/colores.png" alt="Camisetas Alto Gramaje NOXA">
+            <img src="assets/brand/colores.png" alt="Camisetas Alto Gramaje NOXA" id="img-garment-tshirt">
             <span class="pill-badge" style="position: absolute; top: 1rem; left: 1rem;">L a 4XL Reales</span>
           </div>
           <div class="garment-info">
@@ -353,7 +353,7 @@
         <!-- Prenda 2: Bóxers -->
         <div class="garment-card" data-garment="boxer">
           <div class="garment-img-wrap">
-            <img src="assets/brand/boxer-mockup-1.png" alt="Bóxers Ergonómicos NOXA">
+            <img src="assets/brand/boxer-mockup-1.png" alt="Bóxers Ergonómicos NOXA" id="img-garment-boxer">
             <span class="pill-badge" style="position: absolute; top: 1rem; left: 1rem;">Ergonómicos L a 4XL</span>
           </div>
           <div class="garment-info">
@@ -388,7 +388,7 @@
         <!-- Prenda 3: Unboxing -->
         <div class="garment-card">
           <div class="garment-img-wrap">
-            <img src="assets/editorial/unboxing-boxers-rigido.jpg" alt="Unboxing Caja Rígida NOXA" style="object-fit: cover; width: 100%;">
+            <img src="assets/editorial/unboxing-boxers-rigido.jpg" alt="Unboxing Caja Rígida NOXA" style="object-fit: cover; width: 100%;" id="img-garment-unboxing">
             <span class="pill-badge" style="position: absolute; top: 1rem; left: 1rem;">Experiencia Premium</span>
           </div>
           <div class="garment-info">
@@ -417,7 +417,7 @@
         <!-- Prenda 4: Teaser Busos -->
         <div class="garment-card" data-garment="hoodie">
           <div class="garment-img-wrap">
-            <img src="assets/brand/buso-noxa.png" alt="Busos Hoodies NOXA">
+            <img src="assets/brand/buso-noxa.png" alt="Busos Hoodies NOXA" id="img-garment-hoodie">
             <span class="pill-badge" style="position: absolute; top: 1rem; left: 1rem; background: rgba(255,255,255,0.1); color: #fff;">Próximamente</span>
           </div>
           <div class="garment-info">

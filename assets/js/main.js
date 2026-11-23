@@ -123,6 +123,65 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.href = `https://wa.me/${waNum}?text=${encodeURIComponent("Hola NOXA, deseo solicitar asesoría sobre el fit anatómico de sus prendas.")}`;
       });
     }
+
+    // Actualizar Fotos & Medios Dinámicamente
+    if (data.media) {
+      const m = data.media;
+      if (m.hero) {
+        const heroContainer = document.getElementById("hero-bg-container");
+        const heroImg = document.getElementById("img-hero");
+        const isVideo = m.hero.endsWith('.mp4') || m.hero.endsWith('.webm') || m.hero.startsWith('data:video');
+        if (isVideo && heroContainer) {
+          heroContainer.innerHTML = `
+            <video autoplay muted loop playsinline class="hero-bg-img" style="object-fit: cover; width: 100%; height: 100%;">
+              <source src="${m.hero}" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+          `;
+        } else if (heroImg) {
+          heroImg.src = m.hero;
+        }
+      }
+      if (m.lookbook1) {
+        const el = document.getElementById("img-lookbook-1");
+        if (el) el.src = m.lookbook1;
+      }
+      if (m.lookbook2) {
+        const el = document.getElementById("img-lookbook-2");
+        if (el) el.src = m.lookbook2;
+      }
+      if (m.lookbook3) {
+        const el = document.getElementById("img-lookbook-3");
+        if (el) el.src = m.lookbook3;
+      }
+      if (m.garmentTshirt) {
+        const el = document.getElementById("img-garment-tshirt");
+        if (el) el.src = m.garmentTshirt;
+      }
+      if (m.garmentBoxer) {
+        const el = document.getElementById("img-garment-boxer");
+        if (el) el.src = m.garmentBoxer;
+      }
+      if (m.garmentUnboxing) {
+        const el = document.getElementById("img-garment-unboxing");
+        if (el) el.src = m.garmentUnboxing;
+      }
+      if (m.garmentHoodie) {
+        const el = document.getElementById("img-garment-hoodie");
+        if (el) el.src = m.garmentHoodie;
+      }
+      if (m.macroCotton) {
+        const el = document.getElementById("img-macro-cotton");
+        if (el) el.src = m.macroCotton;
+      }
+      if (m.macroCollar) {
+        const el = document.getElementById("img-macro-collar");
+        if (el) el.src = m.macroCollar;
+      }
+      if (m.logo) {
+        document.querySelectorAll(".header-logo, .footer-logo").forEach(img => img.src = m.logo);
+      }
+    }
   }
 
   // ==========================================================================

@@ -86,6 +86,19 @@ const DEFAULT_SITE_DATA = {
       title: "Busos & Hoodies NOXA (Próxima Cápsula)",
       desc: "Prendas exteriores de corte limpio y silueta relajada pensadas para dar calidez y presencia sin agregar volumen innecesario."
     }
+  },
+  media: {
+    hero: "assets/editorial/personaje-1-hero.jpg",
+    lookbook1: "assets/editorial/personaje-1-hero.jpg",
+    lookbook2: "assets/editorial/personaje-2-lookbook.jpg",
+    lookbook3: "assets/editorial/personaje-3-lookbook.jpg",
+    garmentTshirt: "assets/brand/colores.png",
+    garmentBoxer: "assets/brand/boxer-mockup-1.png",
+    garmentUnboxing: "assets/editorial/unboxing-boxers-rigido.jpg",
+    garmentHoodie: "assets/brand/buso-noxa.png",
+    macroCotton: "assets/editorial/macro-textil-algodon.jpg",
+    macroCollar: "assets/editorial/macro-cuello-reforzado.jpg",
+    logo: "assets/brand/logo.png"
   }
 };
 
@@ -311,8 +324,72 @@ function initDashboard() {
   const currentTheme = data.theme || localStorage.getItem('noxa_active_theme') || 'onyx-sand';
   updateThemeUI(currentTheme);
 
+  // 7. Cargar Fotos y Medios
+  loadMediaUI(data.media || DEFAULT_SITE_DATA.media);
+
   // Escuchadores de Guardado
   setupSaveHandlers();
+}
+
+// ==========================================================================
+// GESTIÓN DE FOTOS & MULTIMEDIA
+// ==========================================================================
+function loadMediaUI(media) {
+  if (!media) return;
+  for (const key in media) {
+    const input = document.getElementById(`input-media-${key}`);
+    const preview = document.getElementById(`preview-${key}`);
+    if (input) input.value = media[key];
+    if (preview) preview.src = media[key];
+  }
+}
+
+window.handleMediaUpload = function(inputEl, key) {
+  const file = inputEl.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const dataUrl = e.target.result;
+    const input = document.getElementById(`input-media-${key}`);
+    const preview = document.getElementById(`preview-${key}`);
+    if (input) input.value = dataUrl;
+    if (preview) preview.src = dataUrl;
+
+    const data = getSiteData();
+    if (!data.media) data.media = { ...DEFAULT_SITE_DATA.media };
+    data.media[key] = dataUrl;
+    saveSiteData(data);
+    showToast('✓ Imagen cargada y guardada correctamente.');
+  };
+  reader.readAsDataURL(file);
+};
+
+window.resetMediaDefault = function(key, defaultUrl) {
+  const input = document.getElementById(`input-media-${key}`);
+  const preview = document.getElementById(`preview-${key}`);
+  if (input) input.value = defaultUrl;
+  if (preview) preview.src = defaultUrl;
+
+  const data = getSiteData();
+  if (!data.media) data.media = { ...DEFAULT_SITE_DATA.media };
+  data.media[key] = defaultUrl;
+  saveSiteData(data);
+  showToast('✓ Imagen restablecida al valor original.');
+};
+
+function saveAllMedia() {
+  const data = getSiteData();
+  if (!data.media) data.media = { ...DEFAULT_SITE_DATA.media };
+  const keys = ['hero', 'lookbook1', 'lookbook2', 'lookbook3', 'garmentTshirt', 'garmentBoxer', 'garmentUnboxing', 'garmentHoodie', 'macroCotton', 'macroCollar', 'logo'];
+  keys.forEach(k => {
+    const input = document.getElementById(`input-media-${k}`);
+    if (input && input.value) {
+      data.media[k] = input.value.trim();
+    }
+  });
+  saveSiteData(data);
+  showToast('✓ Todas las fotos han sido guardadas con éxito.');
 }
 
 // ==========================================================================
@@ -362,6 +439,9 @@ window.applyThemeSelection = function(themeId) {
 // GUARDAR CAMBIOS POR SECCIÓN
 // ==========================================================================
 function setupSaveHandlers() {
+  // Guardar Fotos y Medios
+  document.getElementById('btnSaveMediaAll')?.addEventListener('click', saveAllMedia);
+
   // Form 1: Información & Contacto
   document.getElementById('formBusiness')?.addEventListener('submit', (e) => {
     e.preventDefault();
