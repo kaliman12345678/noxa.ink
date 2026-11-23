@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <title>Acceso Seguro | Panel Oficial NOXA</title>
+  <link rel="icon" href="assets/brand/favicon.png" type="image/png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       PANTALLA DE INICIO DE SESIÓN
+       ========================================================================== -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <img src="assets/brand/logo.png" alt="Logo Oficial NOXA" class="login-logo">
+      <h2>NOXA // PANEL</h2>
+      <p>Acceso Seguro al Panel de Administración</p>
+
+      <div class="login-error" id="loginError">
+        <i class="fa-solid fa-triangle-exclamation"></i> <span id="loginErrorMsg">Correo o contraseña incorrectos.</span>
+      </div>
+
+      <div class="login-error" id="loginLockout" style="background: rgba(230, 57, 70, 0.25); border-color: #E63946; color: #FFA69E;">
+        <i class="fa-solid fa-shield-halved"></i> <strong>Acceso bloqueado temporalmente</strong> por intentos fallidos.
+      </div>
+
+      <form id="loginForm">
+        <div class="form-group-admin">
+          <label class="form-label-admin"><i class="fa-regular fa-envelope"></i> Correo Electrónico</label>
+          <input type="email" id="loginEmail" class="form-input-admin" placeholder="admin@noxa.ink" required autofocus autocomplete="username">
+        </div>
+
+        <div class="form-group-admin">
+          <label class="form-label-admin"><i class="fa-solid fa-lock"></i> Contraseña</label>
+          <div style="position: relative;">
+            <input type="password" id="loginPassword" class="form-input-admin" placeholder="••••••••" required autocomplete="current-password" style="padding-right: 2.75rem;">
+            <button type="button" id="togglePasswordVisibility" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #888; cursor: pointer; font-size: 1rem; padding: 4px;" aria-label="Mostrar u ocultar contraseña">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-admin btn-admin-accent" style="width: 100%; padding: 0.95rem; margin-top: 0.5rem;">
+          <i class="fa-solid fa-lock-open"></i> Iniciar Sesión
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       DASHBOARD ADMINISTRATIVO PRINCIPAL
+       ========================================================================== -->
+  <div class="admin-layout">
+    <!-- BARRA LATERAL (SIDEBAR) -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-brand">
+        <img src="assets/brand/logo.png" alt="NOXA" class="sidebar-logo">
+        <div>
+          <div class="sidebar-title">NOXA</div>
+          <div class="sidebar-badge">Panel Oficial</div>
+        </div>
+      </div>
+
+      <ul class="sidebar-nav">
+        <li class="nav-item active">
+          <button class="nav-btn" data-tab="tab-general">
+            <i class="fa-solid fa-sliders"></i>
+            <span>Información & Contacto</span>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-btn" data-tab="tab-hero">
+            <i class="fa-solid fa-pen-nib"></i>
+            <span>Portada & Manifiesto</span>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-btn" data-tab="tab-garments">
+            <i class="fa-solid fa-shirt"></i>
+            <span>Colección de Prendas</span>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-btn" data-tab="tab-quiz">
+            <i class="fa-solid fa-ruler-combined"></i>
+            <span>Diagnóstico & WhatsApp</span>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-btn" data-tab="tab-leads">
+            <i class="fa-solid fa-users"></i>
+            <span>Bandeja de Leads</span>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-btn" data-tab="tab-security">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Seguridad & Respaldo</span>
+          </button>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <a href="index.html" target="_blank" class="btn-admin btn-admin-outline" style="width: 100%; font-size: 0.8rem; padding: 0.65rem;">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Sitio en Vivo
+        </a>
+        <button id="btnLogout" class="btn-admin btn-admin-danger" style="width: 100%; font-size: 0.8rem; padding: 0.65rem;">
+          <i class="fa-solid fa-power-off"></i> Cerrar Sesión
+        </button>
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <div class="admin-topbar-title">
+          <h1>Panel de Control de Marca</h1>
+        </div>
+        <div class="admin-topbar-status">
+          En línea // Modo Sincronizado
+        </div>
+      </header>
+
+      <div class="admin-content-wrap">
+        <!-- ================================================================
+             PESTAÑA 1: INFORMACIÓN & CONTACTO
+             ================================================================ -->
+        <section class="tab-pane active" id="tab-general">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div>
+                <h2 class="admin-card-title">Datos Corporativos & Legales</h2>
+                <p class="admin-card-subtitle">Información oficial desplegada en el Footer y páginas de cumplimiento legal.</p>
+              </div>
+            </div>
+
+            <form id="formBusiness">
+              <div class="grid-2">
+                <div class="form-group-admin">
+                  <label class="form-label-admin">Razón Social</label>
+                  <input type="text" id="bizLegalName" class="form-input-admin" required>
+                </div>
+                <div class="form-group-admin">
+                  <label class="form-label-admin">NIT Oficial</label>
+                  <input type="text" id="bizNit" class="form-input-admin" required>
+                </div>
+              </div>
+
+              <div class="grid-2">
+                <div class="form-group-admin">
+                  <label class="form-label-admin">Matrícula Mercantil</label>
+                  <input type="text" id="bizMatricula" class="form-input-admin" required>
+                </div>
+                <div class="form-group-admin">
+                  <label class="form-label-admin">Cámara de Comercio</label>
+                  <input type="text" id="bizChamber" class="form-input-admin" required>
+                </div>
+              </div>
+
+              <div class="form-group-admin">
+                <label class="form-label-admin">Dirección Física Registrada</label>
+                <input type="text" id="bizAddress" class="form-input-admin" required>
+              </div>
+
+              <div class="grid-3">
+                <div class="form-group-admin">
+                  <label class="form-label-admin">Teléfono de Contacto</label>
+                  <input type="text" id="bizPhone" class="form-input-admin" required>
+                </div>
+                <div class="form-group-admin">
+                  <label class="form-label-admin">WhatsApp Receptor (Solo números)</label>
+                  <input type="text" id="bizWhatsapp" class="form-input-admin" placeholder="573113743447" required>
+                  <span class="form-helper">Ej: 573113743447 (con código de país sin +)</span>
+                </div>
+                <div class="form-group-admin">
+                  <label class="form-label-admin">Correo Electrónico Oficial</label>
+                  <input type="email" id="bizEmail" class="form-input-admin" required>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-admin btn-admin-accent">
+                <i class="fa-solid fa-floppy-disk"></i> Guardar Información
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PESTAÑA 2: PORTADA & MANIFIESTO
+             ================================================================ -->
+        <section class="tab-pane" id="tab-hero">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div>
+                <h2 class="admin-card-title">Titulares y Filosofía de Marca</h2>
+                <p class="admin-card-subtitle">Edita los mensajes clave que el usuario ve al llegar a la página.</p>
+              </div>
+            </div>
+
+            <form id="formHero">
+              <div class="form-group-admin">
+                <label class="form-label-admin">Etiqueta Superior del Hero</label>
+                <input type="text" id="heroTag" class="form-input-admin" required>
+              </div>
+
+              <div class="form-group-admin">
+                <label class="form-label-admin">H1 Principal (Impacto Visual)</label>
+                <input type="text" id="heroTitle" class="form-input-admin" required>
+              </div>
+
+              <div class="form-group-admin">
+                <label class="form-label-admin">Subtítulo Descriptivo</label>
+                <textarea id="heroSubtitle" class="form-textarea-admin" required></textarea>
+              </div>
+
+              <hr style="border: 0; border-top: 1px solid var(--admin-border); margin: 1.5rem 0;">
+
+              <div class="form-group-admin">
+                <label class="form-label-admin">Titular "El Problema Real" (Empatía)</label>
+                <input type="text" id="problemTitle" class="form-input-admin" required>
+              </div>
+
+              <div class="form-group-admin">
+                <label class="form-label-admin">Texto Explicativo de Empatía</label>
+                <textarea id="problemText" class="form-textarea-admin" required></textarea>
+              </div>
+
+              <button type="submit" class="btn-admin btn-admin-accent">
+                <i class="fa-solid fa-floppy-disk"></i> Guardar Mensajes de Portada
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PESTAÑA 3: COLECCIÓN DE PRENDAS
+             ================================================================ -->
+        <section class="tab-pane" id="tab-garments">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div>
+                <h2 class="admin-card-title">Catálogo Editorial (Sin Precios)</h2>
+                <p class="admin-card-subtitle">Prendas y narrativa técnica enfocada en fit y confort.</p>
+              </div>
+            </div>
+
+            <form id="formGarments">
+              <div class="form-group-admin">
+                <label class="form-label-admin"><i class="fa-solid fa-shirt"></i> Prenda 1: Título</label>
+                <input type="text" id="tshirtTitle" class="form-input-admin" required>
+              </div>
+              <div class="form-group-admin">
+                <label class="form-label-admin">Prenda 1: Descripción Textil</label>
+                <textarea id="tshirtDesc" class="form-textarea-admin" required></textarea>
+              </div>
+
+              <hr style="border: 0; border-top: 1px solid var(--admin-border); margin: 1.5rem 0;">
+
+              <div class="form-group-admin">
+                <label class="form-label-admin"><i class="fa-solid fa-shield"></i> Prenda 2: Título</label>
+                <input type="text" id="boxerTitle" class="form-input-admin" required>
+              </div>
+              <div class="form-group-admin">
+                <label class="form-label-admin">Prenda 2: Descripción Textil</label>
+                <textarea id="boxerDesc" class="form-textarea-admin" required></textarea>
+              </div>
+
+              <hr style="border: 0; border-top: 1px solid var(--admin-border); margin: 1.5rem 0;">
+
+              <div class="form-group-admin">
+                <label class="form-label-admin"><i class="fa-solid fa-layer-group"></i> Prenda 3 (Próxima Cápsula): Título</label>
+                <input type="text" id="hoodieTitle" class="form-input-admin" required>
+              </div>
+              <div class="form-group-admin">
+                <label class="form-label-admin">Prenda 3: Descripción</label>
+                <textarea id="hoodieDesc" class="form-textarea-admin" required></textarea>
+              </div>
+
+              <button type="submit" class="btn-admin btn-admin-accent">
+                <i class="fa-solid fa-floppy-disk"></i> Guardar Prendas
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PESTAÑA 4: DIAGNÓSTICO & WHATSAPP
+             ================================================================ -->
+        <section class="tab-pane" id="tab-quiz">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div>
+                <h2 class="admin-card-title">Configuración del Diagnóstico de Fit</h2>
+                <p class="admin-card-subtitle">Ajusta los umbrales de peso recomendados y el formato del mensaje que abre WhatsApp.</p>
+              </div>
+            </div>
+
+            <form id="formQuiz">
+              <div class="form-group-admin">
+                <label class="form-label-admin">Número WhatsApp que Recibe los Diagnósticos</label>
+                <input type="text" id="quizWhatsapp" class="form-input-admin" placeholder="573113743447" required>
+                <span class="form-helper">Debe incluir código de país sin signos (ej: 573113743447)</span>
+              </div>
+
+              <h3 style="font-family: var(--font-display); font-size: 1rem; margin: 1.25rem 0 0.75rem 0; text-transform: uppercase;">
+                Umbrales de Peso Máximo (kg) para Sugerencia de Talla
+              </h3>
+              <div class="grid-2">
+                <div class="form-group-admin">
+                  <label class="form-label-admin">Peso Máximo para Talla L (kg)</label>
+                  <input type="number" id="threshL" class="form-input-admin" required>
+                </div>
+                <div class="form-group-admin">
+                  <label class="form-label-admin">Peso Máximo para Talla XL (kg)</label>
+                  <input type="number" id="threshXL" class="form-input-admin" required>
+                </div>
+                <div class="form-group-admin">
+                  <label class="form-label-admin">Peso Máximo para Talla 2XL (kg)</label>
+                  <input type="number" id="thresh2XL" class="form-input-admin" required>
+                </div>
+                <div class="form-group-admin">
+                  <label class="form-label-admin">Peso Máximo para Talla 3XL (kg)</label>
+                  <input type="number" id="thresh3XL" class="form-input-admin" required>
+                  <span class="form-helper">Pesos superiores a este valor se asignan automáticamente a 4XL.</span>
+                </div>
+              </div>
+
+              <div class="form-group-admin" style="margin-top: 1rem;">
+                <label class="form-label-admin">Plantilla del Mensaje de WhatsApp</label>
+                <textarea id="quizWaTemplate" class="form-textarea-admin" style="min-height: 120px;" required></textarea>
+                <span class="form-helper">Variables dinámicas soportadas: <code>{nombre}</code>, <code>{ciudad}</code>, <code>{prenda}</code>, <code>{tallaHabitual}</code>, <code>{tallaSugerida}</code>, <code>{ajuste}</code>.</span>
+              </div>
+
+              <button type="submit" class="btn-admin btn-admin-accent">
+                <i class="fa-solid fa-floppy-disk"></i> Guardar Ajustes del Diagnóstico
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PESTAÑA 5: BANDEJA DE LEADS (CRM)
+             ================================================================ -->
+        <section class="tab-pane" id="tab-leads">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div>
+                <h2 class="admin-card-title">Prospectos del Diagnóstico de Fit</h2>
+                <p class="admin-card-subtitle">Personas que han completado el cuestionario de tallas en www.noxa.ink.</p>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button id="btnExportCsv" class="btn-admin btn-admin-outline" style="font-size: 0.8rem; padding: 0.5rem 0.9rem;">
+                  <i class="fa-solid fa-file-csv"></i> Descargar CSV
+                </button>
+                <button id="btnClearLeads" class="btn-admin btn-admin-danger" style="font-size: 0.8rem; padding: 0.5rem 0.9rem;">
+                  <i class="fa-solid fa-trash-can"></i> Limpiar
+                </button>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+              <span class="pill-size" id="leadsCountBadge">0 Registros</span>
+            </div>
+
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Fecha</th>
+                    <th>Nombre</th>
+                    <th>Ciudad</th>
+                    <th>WhatsApp</th>
+                    <th>Prenda</th>
+                    <th>Talla Sugerida</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="leadsTableBody">
+                  <!-- Se llena dinámicamente con JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             PESTAÑA 6: SEGURIDAD & RESPALDO
+             ================================================================ -->
+        <section class="tab-pane" id="tab-security">
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div>
+                <h2 class="admin-card-title">Cambio de Credenciales</h2>
+                <p class="admin-card-subtitle">Actualiza tu usuario y clave con cifrado SHA-256 nativo.</p>
+              </div>
+            </div>
+
+            <form id="formSecurity">
+              <div class="grid-2">
+                <div class="form-group-admin">
+                  <label class="form-label-admin">Nuevo Correo de Acceso (Opcional)</label>
+                  <input type="email" id="newAdminEmail" class="form-input-admin" placeholder="nuevo@noxa.ink">
+                </div>
+                <div class="form-group-admin">
+                  <label class="form-label-admin">Nueva Contraseña</label>
+                  <input type="password" id="newAdminPassword" class="form-input-admin" placeholder="Mínimo 6 caracteres">
+                </div>
+              </div>
+
+              <div class="form-group-admin">
+                <label class="form-label-admin">Confirmar Nueva Contraseña</label>
+                <input type="password" id="confirmAdminPassword" class="form-input-admin" placeholder="Repite la contraseña">
+              </div>
+
+              <button type="submit" class="btn-admin btn-admin-accent">
+                <i class="fa-solid fa-key"></i> Actualizar Credenciales
+              </button>
+            </form>
+          </div>
+
+          <div class="admin-card">
+            <div class="admin-card-header">
+              <div>
+                <h2 class="admin-card-title">Copias de Seguridad & Restauración</h2>
+                <p class="admin-card-subtitle">Exporta o importa toda la configuración y los prospectos en un archivo JSON.</p>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 1.5rem;">
+              <button id="btnDownloadBackup" class="btn-admin btn-admin-outline">
+                <i class="fa-solid fa-download"></i> Descargar Copia de Seguridad (.json)
+              </button>
+
+              <label class="btn-admin btn-admin-outline" style="cursor: pointer;">
+                <i class="fa-solid fa-upload"></i> Restaurar Copia (.json)
+                <input type="file" id="backupFileInput" accept=".json" style="display: none;">
+              </label>
+
+              <button id="btnResetDefaults" class="btn-admin btn-admin-danger">
+                <i class="fa-solid fa-rotate-left"></i> Restablecer a Fábrica
+              </button>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--admin-text-muted);">
+              La copia de seguridad te permite guardar o migrar tus personalizaciones y prospectos a cualquier otro navegador o dispositivo fácilmente.
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- TOAST DE NOTIFICACIONES -->
+  <div class="admin-toast success" id="adminToast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span class="toast-msg">Operación completada exitosamente.</span>
+  </div>
+
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

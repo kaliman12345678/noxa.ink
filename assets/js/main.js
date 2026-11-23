@@ -1,5 +1,146 @@
+/**
+ * NOXA — Script Principal de Experiencia de Usuario
+ * Sincronización Dinámica con Panel de Administración Local
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Sticky Header scroll effect
+  // ==========================================================================
+  // 0. SINCRONIZACIÓN CON EL PANEL DE ADMINISTRACIÓN (localStorage)
+  // ==========================================================================
+  let customSiteData = null;
+  try {
+    const raw = localStorage.getItem("noxa_site_data");
+    if (raw) {
+      customSiteData = JSON.parse(raw);
+      applyAdminSiteData(customSiteData);
+    }
+  } catch (err) {}
+
+  function applyAdminSiteData(data) {
+    if (!data) return;
+
+    // Actualizar Hero
+    if (data.hero?.tag) {
+      const heroTag = document.querySelector(".hero-badge");
+      if (heroTag) heroTag.textContent = data.hero.tag;
+    }
+    if (data.hero?.title) {
+      const heroTitle = document.querySelector(".hero-title");
+      if (heroTitle) heroTitle.innerHTML = data.hero.title;
+    }
+    if (data.hero?.subtitle) {
+      const heroSub = document.querySelector(".hero-subtitle");
+      if (heroSub) heroSub.textContent = data.hero.subtitle;
+    }
+
+    // Actualizar Problema / Empatía
+    if (data.problem?.title) {
+      const probTitle = document.querySelector(".problem-title");
+      if (probTitle) probTitle.textContent = data.problem.title;
+    }
+    if (data.problem?.text) {
+      const probText = document.querySelector(".problem-desc");
+      if (probText) probText.textContent = data.problem.text;
+    }
+
+    // Actualizar Prendas
+    if (data.garments?.tshirt?.title) {
+      const tTitle = document.querySelector("[data-garment='tshirt'] .garment-title");
+      if (tTitle) tTitle.textContent = data.garments.tshirt.title;
+    }
+    if (data.garments?.tshirt?.desc) {
+      const tDesc = document.querySelector("[data-garment='tshirt'] .garment-desc");
+      if (tDesc) tDesc.textContent = data.garments.tshirt.desc;
+    }
+    if (data.garments?.boxer?.title) {
+      const bTitle = document.querySelector("[data-garment='boxer'] .garment-title");
+      if (bTitle) bTitle.textContent = data.garments.boxer.title;
+    }
+    if (data.garments?.boxer?.desc) {
+      const bDesc = document.querySelector("[data-garment='boxer'] .garment-desc");
+      if (bDesc) bDesc.textContent = data.garments.boxer.desc;
+    }
+    if (data.garments?.hoodie?.title) {
+      const hTitle = document.querySelector("[data-garment='hoodie'] .garment-title");
+      if (hTitle) hTitle.textContent = data.garments.hoodie.title;
+    }
+    if (data.garments?.hoodie?.desc) {
+      const hDesc = document.querySelector("[data-garment='hoodie'] .garment-desc");
+      if (hDesc) hDesc.textContent = data.garments.hoodie.desc;
+    }
+
+    // Actualizar Información Corporativa en Footer
+    if (data.business?.legalName) {
+      const fLegal = document.querySelectorAll(".footer-legal-name");
+      fLegal.forEach(el => el.textContent = data.business.legalName);
+    }
+    if (data.business?.nit) {
+      const fNit = document.querySelectorAll(".footer-nit");
+      fNit.forEach(el => el.textContent = data.business.nit);
+    }
+    if (data.business?.matricula) {
+      const fMat = document.querySelectorAll(".footer-matricula");
+      fMat.forEach(el => el.textContent = data.business.matricula);
+    }
+    if (data.business?.address) {
+      const fAddr = document.querySelectorAll(".footer-address");
+      fAddr.forEach(el => el.textContent = data.business.address);
+    }
+    if (data.business?.email) {
+      const fMail = document.querySelectorAll(".footer-email");
+      fMail.forEach(el => {
+        el.textContent = data.business.email;
+        el.href = `mailto:${data.business.email}`;
+      });
+    }
+    if (data.business?.phone) {
+      const fPhone = document.querySelectorAll(".footer-phone");
+      fPhone.forEach(el => el.textContent = data.business.phone);
+    }
+
+    // Actualizar enlaces de WhatsApp en Header y Botones
+    if (data.business?.whatsappNumber) {
+      const waNum = data.business.whatsappNumber.replace(/\D/g, "");
+      const waBtns = document.querySelectorAll(".btn-wa-header");
+      waBtns.forEach(btn => {
+        btn.href = `https://wa.me/${waNum}?text=${encodeURIComponent("Hola NOXA, deseo solicitar asesoría sobre el fit anatómico de sus prendas.")}`;
+      });
+    }
+  }
+
+  // ==========================================================================
+  // ATAJOS DISCRETOS DE ACCESO AL PANEL DE ADMINISTRACIÓN
+  // ==========================================================================
+  // Atajo 1: Teclado (Ctrl + Shift + A o Cmd + Shift + A)
+  window.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === "A" || e.key === "a")) {
+      e.preventDefault();
+      window.location.href = "admin.html";
+    }
+  });
+
+  // Atajo 2: 5 clics rápidos consecutivos en el Logo del Header
+  const headerLogo = document.querySelector(".header-logo");
+  if (headerLogo) {
+    let logoClicks = 0;
+    let logoTimer = null;
+    headerLogo.addEventListener("click", (e) => {
+      logoClicks++;
+      clearTimeout(logoTimer);
+      if (logoClicks >= 5) {
+        logoClicks = 0;
+        window.location.href = "admin.html";
+      } else {
+        logoTimer = setTimeout(() => {
+          logoClicks = 0;
+        }, 2000);
+      }
+    });
+  }
+
+  // ==========================================================================
+  // 1. STICKY HEADER & NAVEGACIÓN MÓVIL
+  // ==========================================================================
   const header = document.querySelector(".site-header");
   if (header) {
     window.addEventListener("scroll", () => {
@@ -11,14 +152,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 2. Mobile Nav Toggle
   const mobileToggle = document.querySelector(".mobile-toggle");
   const mobileNav = document.querySelector(".mobile-nav");
   if (mobileToggle && mobileNav) {
     mobileToggle.addEventListener("click", () => {
       mobileNav.classList.toggle("open");
     });
-    // Close on link click
     mobileNav.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         mobileNav.classList.remove("open");
@@ -26,7 +165,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 3. Diagnostic Fit Quiz Logic
+  // ==========================================================================
+  // 2. DIAGNÓSTICO DE FIT INTERACTIVO
+  // ==========================================================================
   let currentStep = 1;
   let quizData = {
     preference: "Camisetas y Bóxers",
@@ -66,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Step 1: Prenda selection
+  // Paso 1: Selección de prenda
   document.querySelectorAll("[data-quiz-pref]").forEach(btn => {
     btn.addEventListener("click", () => {
       document.querySelectorAll("[data-quiz-pref]").forEach(b => b.classList.remove("selected"));
@@ -75,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Step 2: Size selection
+  // Paso 2: Selección de talla habitual
   document.querySelectorAll("[data-quiz-size]").forEach(btn => {
     btn.addEventListener("click", () => {
       document.querySelectorAll("[data-quiz-size]").forEach(b => b.classList.remove("selected"));
@@ -84,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Step 3: Fit style selection
+  // Paso 3: Selección de ajuste
   document.querySelectorAll("[data-quiz-fit]").forEach(btn => {
     btn.addEventListener("click", () => {
       document.querySelectorAll("[data-quiz-fit]").forEach(b => b.classList.remove("selected"));
@@ -93,17 +234,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Size calculation algorithm
+  // Algoritmo de cálculo de talla (con soporte para umbrales del admin)
   function calculateSize() {
     let rec = quizData.usualSize || "2XL";
     const weight = parseFloat(document.getElementById("quiz-weight")?.value || "");
 
+    const thresh = customSiteData?.quiz?.thresholds || {
+      maxL: 89,
+      maxXL: 104,
+      max2XL: 119,
+      max3XL: 134
+    };
+
     if (!isNaN(weight) && weight > 0) {
-      if (weight >= 125) rec = "4XL";
-      else if (weight >= 110) rec = "3XL";
-      else if (weight >= 95) rec = "2XL";
-      else if (weight >= 84) rec = "XL";
-      else rec = "L";
+      if (weight <= thresh.maxL) rec = "L";
+      else if (weight <= thresh.maxXL) rec = "XL";
+      else if (weight <= thresh.max2XL) rec = "2XL";
+      else if (weight <= thresh.max3XL) rec = "3XL";
+      else rec = "4XL";
     }
 
     if (quizData.fitStyle === "Más Suelto y Relajado") {
@@ -119,7 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return rec;
   }
 
-  // Navigation handlers
+  // Navegación de pasos
   window.nextQuizStep = function(fromStep) {
     if (fromStep === 1) {
       currentStep = 2;
@@ -141,7 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Step 4: Submission & WhatsApp link generation
+  // Paso 4: Envío, registro en CRM local y apertura de WhatsApp
   const leadForm = document.getElementById("quiz-lead-form");
   if (leadForm) {
     leadForm.addEventListener("submit", (e) => {
@@ -156,19 +304,29 @@ document.addEventListener("DOMContentLoaded", () => {
       quizData.city = city;
       quizData.phone = phone;
 
-      // Save locally to localStorage as backup
+      // 1. Guardar en Bandeja de Leads Local (CRM)
       try {
         const stored = JSON.parse(localStorage.getItem("noxa_leads") || "[]");
-        stored.push({ ...quizData, date: new Date().toISOString() });
+        stored.unshift({ ...quizData, date: new Date().toISOString() });
         localStorage.setItem("noxa_leads", JSON.stringify(stored));
       } catch (err) {}
 
-      // Format WhatsApp Deep Link (+57 311 374 3447)
-      const text = `¡Hola equipo NOXA! Acabo de realizar el Diagnóstico de Fit en www.noxa.ink.\n\n👤 *Nombre:* ${name}\n📍 *Ciudad:* ${city}\n👕 *Interés:* ${quizData.preference}\n📏 *Talla Habitual:* ${quizData.usualSize}\n🎯 *Talla Sugerida NOXA:* ${quizData.calculatedSize}\n✨ *Ajuste Deseado:* ${quizData.fitStyle}\n\nMe gustaría recibir su catálogo oficial de prendas y confirmar mi talla por este medio.`;
+      // 2. Generar mensaje de WhatsApp dinámico
+      const waNumber = (customSiteData?.quiz?.whatsappNumber || "573113743447").replace(/\D/g, "");
+      let template = customSiteData?.quiz?.waTemplate || 
+        "¡Hola equipo NOXA! Acabo de realizar el Diagnóstico de Fit en www.noxa.ink.\n\n👤 *Nombre:* {nombre}\n📍 *Ciudad:* {ciudad}\n👕 *Interés:* {prenda}\n📏 *Talla Habitual:* {tallaHabitual}\n🎯 *Talla Sugerida NOXA:* {tallaSugerida}\n✨ *Ajuste Deseado:* {ajuste}\n\nMe gustaría recibir su catálogo oficial de prendas y confirmar mi talla por este medio.";
 
-      const waUrl = `https://wa.me/573113743447?text=${encodeURIComponent(text)}`;
+      const text = template
+        .replace(/{nombre}/g, name)
+        .replace(/{ciudad}/g, city)
+        .replace(/{prenda}/g, quizData.preference)
+        .replace(/{tallaHabitual}/g, quizData.usualSize)
+        .replace(/{tallaSugerida}/g, quizData.calculatedSize)
+        .replace(/{ajuste}/g, quizData.fitStyle);
 
-      // Show completed state
+      const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+
+      // 3. Mostrar pantalla de éxito
       const formContainer = document.getElementById("quiz-form-container");
       const successContainer = document.getElementById("quiz-success-container");
       const waActionBtn = document.getElementById("quiz-wa-action");
@@ -181,12 +339,12 @@ document.addEventListener("DOMContentLoaded", () => {
         waActionBtn.href = waUrl;
       }
 
-      // Automatically open WhatsApp in new tab
+      // 4. Abrir WhatsApp automáticamente en pestaña nueva
       window.open(waUrl, "_blank");
     });
   }
 
-  // Consult garment shortcut: scroll and select
+  // Acceso directo al quiz al consultar prendas
   window.consultGarment = function(pref) {
     const quizEl = document.getElementById("diagnostico");
     if (quizEl) {

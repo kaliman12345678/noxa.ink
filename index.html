@@ -305,7 +305,7 @@
 
       <div class="garments-grid">
         <!-- Prenda 1: Camisetas -->
-        <div class="garment-card">
+        <div class="garment-card" data-garment="tshirt">
           <div class="garment-img-wrap">
             <img src="assets/brand/colores.png" alt="Camisetas Alto Gramaje NOXA">
             <span class="pill-badge" style="position: absolute; top: 1rem; left: 1rem;">L a 4XL Reales</span>
@@ -340,7 +340,7 @@
         </div>
 
         <!-- Prenda 2: Bóxers -->
-        <div class="garment-card">
+        <div class="garment-card" data-garment="boxer">
           <div class="garment-img-wrap">
             <img src="assets/brand/boxer-mockup-1.png" alt="Bóxers Ergonómicos NOXA">
             <span class="pill-badge" style="position: absolute; top: 1rem; left: 1rem;">Ergonómicos L a 4XL</span>
@@ -404,7 +404,7 @@
         </div>
 
         <!-- Prenda 4: Teaser Busos -->
-        <div class="garment-card">
+        <div class="garment-card" data-garment="hoodie">
           <div class="garment-img-wrap">
             <img src="assets/brand/buso-noxa.png" alt="Busos Hoodies NOXA">
             <span class="pill-badge" style="position: absolute; top: 1rem; left: 1rem; background: rgba(255,255,255,0.1); color: #fff;">Próximamente</span>
@@ -660,10 +660,10 @@
         <div>
           <h4 class="footer-heading">Respaldo Legal & Fiscal</h4>
           <ul class="footer-list">
-            <li><strong>Razón Social:</strong> NOXA</li>
-            <li><strong>NIT Oficial:</strong> 890900266-3</li>
-            <li><strong>Matrícula:</strong> 812832-16</li>
-            <li><strong>Dirección:</strong> CALLE 47 D # 78A - 15</li>
+            <li><strong>Razón Social:</strong> <span class="footer-legal-name">NOXA</span></li>
+            <li><strong>NIT Oficial:</strong> <span class="footer-nit">890900266-3</span></li>
+            <li><strong>Matrícula:</strong> <span class="footer-matricula">812832-16</span></li>
+            <li><strong>Dirección:</strong> <span class="footer-address">CALLE 47 D # 78A - 15</span></li>
             <li><strong>Domicilio:</strong> Medellín – Antioquia, Colombia</li>
             <li><strong>Portal Oficial:</strong> www.noxa.ink</li>
           </ul>
@@ -674,11 +674,11 @@
           <ul class="footer-list">
             <li>
               <strong>Correo Oficial:</strong><br>
-              <a href="mailto:servicioalcliente@noxa.ink" class="footer-link">servicioalcliente@noxa.ink</a>
+              <a href="mailto:servicioalcliente@noxa.ink" class="footer-link footer-email">servicioalcliente@noxa.ink</a>
             </li>
             <li>
               <strong>Línea Telefónica / WhatsApp:</strong><br>
-              <a href="https://wa.me/573113743447" target="_blank" class="footer-link" style="color: var(--color-sand); font-family: monospace;">+57 311 374 3447</a>
+              <a href="https://wa.me/573113743447" target="_blank" class="footer-link footer-phone" style="color: var(--color-sand); font-family: monospace;">+57 311 374 3447</a>
             </li>
             <li>
               <strong>Horario:</strong> Lunes a Sábado 8:00 AM – 6:00 PM
@@ -704,6 +704,8 @@
           <a href="terminos-y-condiciones.html" class="footer-link">Términos</a>
           <span style="margin: 0 0.5rem;">•</span>
           <a href="politica-de-privacidad.html" class="footer-link">Privacidad</a>
+          <span style="margin: 0 0.5rem;">•</span>
+          <a href="admin.html" style="color: rgba(255,255,255,0.22); text-decoration: none; font-size: 0.72rem;" title="Acceso Administrativo">🔒 Panel</a>
         </div>
         <div>
           Medellín, Antioquia, Colombia
