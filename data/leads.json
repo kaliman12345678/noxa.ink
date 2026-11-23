@@ -1,0 +1,34 @@
+[
+  {
+    "id": "lead-demo-1",
+    "createdAt": "2026-11-23T11:45:00.000Z",
+    "fullName": "Mateo Gómez",
+    "city": "Cali",
+    "whatsapp": "+57 311 889 4421",
+    "interest": "Camisetas",
+    "heightCm": 182,
+    "weightKg": 118,
+    "usualSize": "3XL",
+    "fitPreference": "Estructurada y firme",
+    "palette": "Negro esencial",
+    "calculatedSize": "3XL",
+    "notes": "Interesado en camisetas negras cuello redondo reforzado.",
+    "status": "nuevo"
+  },
+  {
+    "id": "lead-demo-2",
+    "createdAt": "2026-11-23T10:15:00.000Z",
+    "fullName": "Santiago Morales",
+    "city": "Bogotá",
+    "whatsapp": "+57 300 452 9180",
+    "interest": "Bóxers",
+    "heightCm": 178,
+    "weightKg": 95,
+    "usualSize": "XL",
+    "fitPreference": "Relajada y fresca",
+    "palette": "Azul Marino y Gris",
+    "calculatedSize": "XL",
+    "notes": "Busca paquete de 3 bóxers en caja rígida.",
+    "status": "contactado"
+  }
+]

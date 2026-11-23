@@ -1,0 +1,244 @@
+import { SiteContent } from "./types";
+
+export const DEFAULT_SITE_CONTENT: SiteContent = {
+  brand: {
+    name: "NOXA",
+    operator: "NOXA",
+    nit: "890900266-3",
+    registry: "812832-16 (Cámara de Comercio de Medellín para Antioquia)",
+    address: "CALLE 47 D # 78A - 15, Medellín – Antioquia, Colombia",
+    email: "servicioalcliente@noxa.ink",
+    whatsappNumber: "573113743447",
+    whatsappFormatted: "+57 311 374 3447",
+    instagram: "https://instagram.com/noxa.ink",
+    tiktok: "https://tiktok.com/@noxa.ink",
+  },
+  hero: {
+    badge: "TALLAS REALES DESDE LA L HASTA LA 4XL",
+    title: "LA TALLA CAMBIA, LA ACTITUD NO.",
+    subtitle:
+      "En NOXA creamos prendas diseñadas para personas que buscan comodidad de verdad. Sin apretar, sin perder la forma, sin tener que encajar en un molde.",
+    ctaPrimary: "DESCUBRE TU FIT IDEAL →",
+    ctaSecondary: "VER EL MANIFIESTO",
+    videoUrl: "",
+  },
+  manifesto: {
+    tag: "FILOSOFÍA NOXA",
+    headline: "ROPA CONSTRUIDA PARA TU CUERPO, NO PARA UN MOLDE ESTÁNDAR",
+    statement:
+      "Durante años, el mercado tradicional ha intentado forzar a los hombres de contextura grande a vestirse con patrones escalados de manera defectuosa: cuellos que se abren, telas que se adhieren donde no deben y costuras que lastiman. En NOXA rompemos ese paradigma con ingeniería textil pensada desde el origen.",
+    keyPoints: [
+      {
+        title: "Patronaje Anatómico de Cero",
+        desc: "No alargamos una talla M; rediseñamos los hombros, el ancho de pecho y la caída lateral desde la talla L hasta la 4XL.",
+      },
+      {
+        title: "Algodón de Alto Gramaje",
+        desc: "Tejidos pesados y densos que otorgan una caída limpia y estructurada, ocultando transparencias e imperfecciones.",
+      },
+      {
+        title: "Cuellos Indeformables",
+        desc: "Rib reforzado con hilatura de alta resistencia que mantiene su silueta firme incluso después de múltiples lavados.",
+      },
+      {
+        title: "Bóxers Antiroce y Cero Enrollamiento",
+        desc: "Pretina anatómica ancha y longitud de pierna calibrada para que camines con total libertad sin que la prenda se suba.",
+      },
+    ],
+  },
+  theProblem: {
+    tag: "EMPATÍA & REALIDAD",
+    headline: "LO QUE SIEMPRE HAS VIVIDO CON LA ROPA COMÚN",
+    description:
+      "Si usas tallas grandes, probablemente te has acostumbrado a normalizar la incomodidad. La industria te hizo creer que el problema era tu cuerpo.",
+    comparisons: [
+      {
+        flaw: "Camisetas que se deforman al segundo lavado, cuellos abiertos y telas delgadas que se pegan al abdomen.",
+        noxaSolution:
+          "Algodón pesado estructurado de 240g que mantiene su caída natural y cuello acanalado reforzado indeformable.",
+      },
+      {
+        flaw: "Bóxers con elásticos que aprietan la cintura, se enrollan en los muslos al caminar y obligan a acomodarse constantemente.",
+        noxaSolution:
+          "Cintura ergonómica ancha de 45mm que distribuye la presión de forma suave y longitud antiroce que permanece en su lugar.",
+      },
+      {
+        flaw: "Tallas 'Plus Size' hechas simplemente estirando patrones pequeños, creando prendas desproporcionadas y sin forma.",
+        noxaSolution:
+          "Corte arquitectónico concebido desde cero exclusivamente para torsos masculinos robustos desde la talla L hasta la 4XL.",
+      },
+    ],
+    punchline: "No era tu cuerpo. Era la ropa mal diseñada.",
+  },
+  garments: [
+    {
+      id: "camisetas-alto-gramaje",
+      title: "Camisetas de Alto Gramaje",
+      category: "Prenda Superior",
+      badge: "Tallas L a 4XL",
+      description:
+        "Confeccionadas con algodón prémium de alto gramaje. Brindan una silueta masculina contundente, estructurada y sin arrugas ni adherencias incómodas en el torso.",
+      specs: [
+        "Cuello acanalado reforzado indeformable (Rib anti-ondas)",
+        "Algodón prémium pesado de 240g/m² transpirable",
+        "Caída estructurada calibrada para hombros y pecho amplio",
+        "Costuras dobles reforzadas de alta durabilidad",
+      ],
+      sizes: ["L", "XL", "2XL", "3XL", "4XL"],
+      colors: ["Negro Mate", "Azul Marino Profundo", "Gris Acero"],
+      image: "/editorial/macro-algodon.jpg",
+      active: true,
+    },
+    {
+      id: "boxers-ergonomicos",
+      title: "Bóxers Ergonómicos",
+      category: "Ropa Interior de Alta Gama",
+      badge: "Tallas L a 4XL",
+      description:
+        "Desarrollados con ajuste anatómico que no aprieta ni corta la circulación. No se suben en los muslos ni se enrollan en la pretina durante todo el día.",
+      specs: [
+        "Pretina ultra suave de elástico ancho antiroce de 45mm",
+        "Longitud extendida de pierna calibrada antienrollamiento",
+        "Tejido elástico inteligente de microfibra de algodón",
+        "Corte ergonómico con soporte natural sin presión",
+      ],
+      sizes: ["L", "XL", "2XL", "3XL", "4XL"],
+      colors: ["Negro Onix", "Azul Noche", "Gris Ceniza"],
+      image: "/brand/boxer-mockup-1.png",
+      active: true,
+    },
+    {
+      id: "unboxing-experiencial",
+      title: "Presentación en Caja Rígida",
+      category: "Detalle de Marca",
+      badge: "Edición Prémium",
+      description:
+        "Cada entrega se presenta en nuestra caja rígida negro mate de apertura limpia, pensada para sentirse de alta gama desde el primer contacto.",
+      specs: [
+        "Estructura rígida de acabado mate suave al tacto",
+        "Papel protector interior grabado NOXA",
+        "Ideal para obsequio o conservación personal",
+        "Empaque 100% reutilizable y sostenible",
+      ],
+      sizes: ["Formato Estándar"],
+      colors: ["Negro Mate Minimalista"],
+      image: "/brand/mockup-web.png",
+      active: true,
+    },
+    {
+      id: "busos-capsula",
+      title: "Próxima Cápsula: Busos y Hoodies",
+      category: "Lanzamiento Teaser",
+      badge: "Próximamente",
+      description:
+        "Línea de abrigo en felpa pesada de algodón con capucha arquitectónica y caída recta para climas frescos.",
+      specs: [
+        "Felpa pesada de 380g de alta retención térmica",
+        "Capucha envolvente sin cordones visibles",
+        "Bolsillo frontal integrado sin abultar",
+        "Corte amplio con caída limpia en tallas L a 4XL",
+      ],
+      sizes: ["L", "XL", "2XL", "3XL", "4XL"],
+      colors: ["Negro Mate", "Gris Grafito"],
+      image: "/brand/buso-noxa.png",
+      active: true,
+    },
+  ],
+  lookbook: [
+    {
+      id: "char-1",
+      character: "El Urbano Seguro",
+      tag: "Hero Principal",
+      tone: "Negro Esencial — Atemporal, seguro y contundente",
+      size: "Talla 3XL",
+      story:
+        "Hombre robusto con barba cuidada y reloj minimalista. Su camiseta de alto gramaje cae recta y firme sin marcar el abdomen frente al muro de hormigón arquitectónico.",
+      image: "/editorial/personaje-1-hero.jpg",
+    },
+    {
+      id: "char-2",
+      character: "Estilo de Vida Cotidiano",
+      tag: "Lookbook Urbano",
+      tone: "Azul Marino Profundo — Equilibrio y sobriedad",
+      size: "Talla 2XL",
+      story:
+        "En un café moderno o terraza de ciudad. Comodidad absoluta sin arrugas ni tela que tire de las costuras mientras trabaja o comparte un café.",
+      image: "/editorial/personaje-2-lookbook.jpg",
+    },
+    {
+      id: "char-3",
+      character: "Versatilidad y Actitud",
+      tag: "Detalle y Movimiento",
+      tone: "Gris Acero — Minimalismo y textura",
+      size: "Talla 4XL",
+      story:
+        "Caminando con gafas oscuras en un entorno arquitectónico. Una prenda que acompaña el ritmo de vida urbano con prestancia y solidez.",
+      image: "/editorial/personaje-3-actitud.jpg",
+    },
+  ],
+  textileEngineering: [
+    {
+      title: "Densidad de Alto Gramaje",
+      subtitle: "Tejido Compacto 240g/m²",
+      details:
+        "Algodón peinado de fibra larga que otorga peso tangible y resistencia estructural duradera.",
+      image: "/editorial/macro-algodon.jpg",
+    },
+    {
+      title: "Cuello Acanalado Reforzado",
+      subtitle: "Rib de Doble Tensión",
+      details:
+        "Mantiene el contorno del cuello cerrado y firme lavado tras lavado sin ondas ni arrugas.",
+      image: "/editorial/macro-cuello.jpg",
+    },
+    {
+      title: "Ingeniería Antiroce",
+      subtitle: "Pretina Ergonómica de 45mm",
+      details:
+        "Distribución uniforme de elasticidad que evita marcas en la piel y garantiza sujeción perfecta.",
+      image: "/brand/boxer-mockup-2.png",
+    },
+  ],
+  testimonials: [
+    {
+      id: "t-1",
+      quote:
+        "Por primera vez encuentro una camiseta que me queda bien en los hombros sin parecer una carpa en la cintura. La tela tiene un peso increíble y el cuello sigue intacto.",
+      author: "Carlos R.",
+      city: "Bogotá D.C.",
+      size: "Usa talla 3XL",
+    },
+    {
+      id: "t-2",
+      quote:
+        "Los bóxers cambiaron por completo mi día a día. Camino todo el día por trabajo y no se suben ni una sola vez. No se enrollan en la pretina.",
+      author: "Andrés M.",
+      city: "Medellín",
+      size: "Usa talla 2XL",
+    },
+    {
+      id: "t-3",
+      quote:
+        "La experiencia de recibir la caja negra y tocar la tela te demuestra que esto no es ropa común. Se siente de verdad como un producto de lujo hecho para nuestra contextura.",
+      author: "Felipe S.",
+      city: "Cali",
+      size: "Usa talla 4XL",
+    },
+  ],
+  quizConfig: {
+    thresholds: {
+      lMaxWeight: 88,
+      xlMaxWeight: 99,
+      xxlMaxWeight: 114,
+      xxxlMaxWeight: 130,
+    },
+    whatsappTemplates: {
+      general:
+        "Hola NOXA, mi nombre es {nombre} de {ciudad}. Acabo de realizar el Diagnóstico de Fit en su web y mi resultado fue talla {talla} (interés en {prenda}, caída {caida}, paleta {paleta}). Deseo recibir asesoría personalizada sobre disponibilidad y el catálogo oficial. ¡Muchas gracias!",
+      boxers:
+        "Hola equipo NOXA, soy {nombre} de {ciudad}. Realicé el test de fit enfocado en sus Bóxers Ergonómicos (mido {estatura}cm, peso aprox. {peso}kg y mi talla calculada es {talla}). Quisiera asesoría para confirmar mi talla y conocer los combos en empaque rígido.",
+      regalo:
+        "Hola NOXA, mi nombre es {nombre} de {ciudad}. Hice el Diagnóstico de Fit para un regalo especial (talla estimada {talla}, interés en {prenda}, preferencia {paleta}). Quisiera que me asesoren para asegurar que el fit sea perfecto y coordinar la entrega en la caja de presentación.",
+    },
+  },
+};

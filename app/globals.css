@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-jakarta: 'Plus Jakarta Sans', sans-serif;
+  --font-oswald: 'Oswald', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0D0D0F;
+  color: #F5F5F3;
+}
+
+body {
+  font-family: var(--font-jakarta);
+  background-color: #0D0D0F;
+  color: #F5F5F3;
+  overflow-x: hidden;
+  selection-background-color: #D6C5B0;
+  selection-color: #0D0D0F;
+}
+
+::selection {
+  background: #D6C5B0;
+  color: #0D0D0F;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0D0F;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3F3F46;
+}
+
+/* Range input slider aesthetic */
+input[type=range] {
+  -webkit-appearance: none;
+  background: #27272A;
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #D6C5B0;
+  cursor: pointer;
+  border: 2px solid #0D0D0F;
+  box-shadow: 0 0 10px rgba(214, 197, 176, 0.4);
+  transition: transform 0.15s ease;
+}
+input[type=range]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
