@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==========================================================================
   // Atajo 1: Teclado (Ctrl + Shift + A o Cmd + Shift + A)
   window.addEventListener("keydown", (e) => {
-    if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === "A" || e.key === "a")) {
+    if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === "A" || e.key === "a" || e.code === "KeyA")) {
       e.preventDefault();
       window.location.href = "admin.html";
     }
