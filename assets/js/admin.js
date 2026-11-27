@@ -43,11 +43,11 @@ async function computeSHA256(text) {
 // Datos predeterminados de fábrica de NOXA
 const DEFAULT_SITE_DATA = {
   business: {
-    legalName: "NOXA",
+    legalName: "NOXA OFI",
     nit: "890900266-3",
     matricula: "812832-16",
     chamber: "Cámara de Comercio de Medellín para Antioquia",
-    address: "CALLE 47 D # 78A - 15, Medellín – Antioquia, Colombia",
+    address: "CALLE 47 D # 78A - 15, Medellín, Antioquia 050031, Colombia",
     phone: "+57 311 374 3447",
     whatsappNumber: "573113743447",
     email: "talentohumano@noxa.ink",

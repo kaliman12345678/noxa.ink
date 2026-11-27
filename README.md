@@ -6,10 +6,10 @@
 ---
 
 ## 🏛️ Información Corporativa y Legal Oficial
-- **Razón Social:** NOXA
+- **Razón Social:** NOXA OFI (Sigla: Noxa Ofi)
 - **NIT Oficial:** 890900266-3
 - **Inscripción / Matrícula Mercantil:** 812832-16 (Cámara de Comercio de Medellín para Antioquia)
-- **Domicilio Principal:** CALLE 47 D # 78A - 15, Medellín – Antioquia, Colombia
+- **Domicilio Principal:** CALLE 47 D # 78A - 15, Medellín, Antioquia 050031, Colombia
 - **Correo Oficial de Atención:** `talentohumano@noxa.ink`
 - **Línea de Atención / WhatsApp:** `+57 311 374 3447`
 - **Portal Web Oficial:** `www.noxa.ink`
