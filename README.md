@@ -10,7 +10,7 @@
 - **NIT Oficial:** 890900266-3
 - **Inscripción / Matrícula Mercantil:** 812832-16 (Cámara de Comercio de Medellín para Antioquia)
 - **Domicilio Principal:** CALLE 47 D # 78A - 15, Medellín – Antioquia, Colombia
-- **Correo Oficial de Atención:** `servicioalcliente@noxa.ink`
+- **Correo Oficial de Atención:** `talentohumano@noxa.ink`
 - **Línea de Atención / WhatsApp:** `+57 311 374 3447`
 - **Portal Web Oficial:** `www.noxa.ink`
 
@@ -48,7 +48,7 @@
 
 - **Ruta de acceso:** [http://localhost:3000/admin](http://localhost:3000/admin) (o `/admin/login`)
 - **Credenciales por defecto:**
-  - 📧 **Correo:** `servicioalcliente@noxa.ink` (o `talento@noxa.lat`)
+  - 📧 **Correo:** `talentohumano@noxa.ink`
   - 🔑 **Contraseña:** `noxa2024!`
 
 ### Módulos del Panel:

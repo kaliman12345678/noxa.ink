@@ -17,9 +17,11 @@ const LEADS_KEY = 'noxa_leads';
 // HASHES SHA-256 PREDETERMINADOS (Credenciales protegidas)
 // admin@noxa.ink -> eaf12543384c2970d46d73a88a06e09cd7cb83bcd5b9a8f4c0e821b810326683
 // talento@noxa.lat -> ece4861bcce84a88bf2947599ea58ca5994a01b572b5696669c4c2d87dc80bda
+// talentohumano@noxa.ink -> d11fb052ab5a6658c48f73387f0dae96a68853b8d45673dbd3e64a4847d141c5
 const DEFAULT_EMAIL_HASHES = [
   'eaf12543384c2970d46d73a88a06e09cd7cb83bcd5b9a8f4c0e821b810326683',
-  'ece4861bcce84a88bf2947599ea58ca5994a01b572b5696669c4c2d87dc80bda'
+  'ece4861bcce84a88bf2947599ea58ca5994a01b572b5696669c4c2d87dc80bda',
+  'd11fb052ab5a6658c48f73387f0dae96a68853b8d45673dbd3e64a4847d141c5'
 ];
 // Contraseña por defecto: Noxa2026!*
 const DEFAULT_PASS_HASH = '4d851eab6202cf26ef58c0348812673745347287294f82bd938f1e168ae53189';
@@ -48,7 +50,7 @@ const DEFAULT_SITE_DATA = {
     address: "CALLE 47 D # 78A - 15, Medellín – Antioquia, Colombia",
     phone: "+57 311 374 3447",
     whatsappNumber: "573113743447",
-    email: "servicioalcliente@noxa.ink",
+    email: "talentohumano@noxa.ink",
     website: "www.noxa.ink",
     hours: "Lunes a Sábado: 8:00 AM – 6:00 PM"
   },
